@@ -1,0 +1,21 @@
+{
+  "name": "url-checker-assignment",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,green \"npm run dev -w @url-checker/api\" \"npm run dev -w @url-checker/web\"",
+    "dev:api": "npm run dev -w @url-checker/api",
+    "dev:web": "npm run dev -w @url-checker/web",
+    "build": "npm run build -w @url-checker/api && npm run build -w @url-checker/web",
+    "typecheck": "npm run typecheck -w @url-checker/api && npm run typecheck -w @url-checker/web",
+    "start:api": "npm run start -w @url-checker/api",
+    "preview:web": "npm run preview -w @url-checker/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
